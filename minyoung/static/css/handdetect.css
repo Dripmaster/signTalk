@@ -1,0 +1,97 @@
+@font-face{
+  font-family: "jua";
+  src: url("../fonts/HoengseongHanu.ttf");
+}
+@font-face {
+  font-family: "godic";
+  src: url("../fonts/MinSans-Regular.ttf");
+}
+@font-face {
+  font-family: "godic_b";
+  src: url("../fonts/MinSans-Bold.ttf");
+}
+
+
+h1{
+  font-family: "godic_b";
+  text-align: center;
+  font-size: 32px;
+}
+
+h2{
+  text-align: center;
+  font-family: "godic";
+  font-size:20px;
+}
+
+.nav-container{
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  margin: 0;
+  padding: 0;
+  background-color: darkslategrey;
+  list-style-type: none;
+  font-size: 20px;
+  color:white;
+  font-family: "godic";
+}
+
+.nav-item{
+  padding:15px;
+  cursor: pointer;
+}
+
+.nav-item a {
+  text-align: center;
+  text-decoration: none;
+  color:white;
+}
+
+div{
+  text-align: center;
+}
+
+.figure{
+  width: 1520px;
+  height: 10px;
+  background:rgb(184, 223, 191);
+  text-align: center;
+}
+#footer{
+  position: fixed;
+  background-color: white; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3rem;
+}
+.nav-contain{
+  display: flex;
+  flex-direction: row;
+  width:30%;
+  height:10%;
+  margin: 0;
+  padding: 0;
+  margin-left:430px;
+  background-color: rgb(116, 156, 128);
+  list-style-type: none;
+  font-size: 20px;
+  color:white;
+  font-family: "godic";
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-it{
+  padding:15px;
+  cursor: pointer;
+  text-align:center;
+  display: inline-block;
+}
+
+.nav-it a {
+  text-align: center;
+  text-decoration: none;
+  color:white;
+}
