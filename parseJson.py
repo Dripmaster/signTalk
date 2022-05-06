@@ -41,13 +41,15 @@ def csvLoad(name):
     df = pd.read_csv(name,index_col=0)
     return df
 
+#os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
+#os.environ["CUDA_VISIBLE_DEVICES"]="0"
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 mp_pose = mp.solutions.pose
 
 
 path_dir = "D:/aiData/수어 영상/1.Training/morpheme/03/"
-video_path = "D:/aiData/수어 영상/1.Training/03/"
+video_path = "C:/AIDATA/수어 영상/1.Training/03/"
 file_list = os.listdir(path_dir)
 file_count = len(file_list)
 
@@ -138,6 +140,8 @@ for fname in morphemes.keys():
                 success, image = cap.read()
                 if not success:
                     break
+                if failFlag > 5:
+                    break
 
                 image = cv2.cvtColor(cv2.flip(image, 1), cv2.COLOR_BGR2RGB)
                 image.flags.writeable = False
@@ -149,12 +153,12 @@ for fname in morphemes.keys():
                     failFlag = failFlag+ 10
                     print('pose fail')
                     continue
-                _,L1 = innerProduct(getXY(poseResults.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_HIP]),
-                             getXY(poseResults.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER]))
+                _,L1 = innerProduct(getXY(poseResults.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER]),
+                             getXY(poseResults.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_ELBOW]))
                 _,L2 = innerProduct(getXY(poseResults.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_SHOULDER]),
                              getXY(poseResults.pose_landmarks.landmark[mp_pose.PoseLandmark.LEFT_WRIST]))
-                _, R1 = innerProduct(getXY(poseResults.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_HIP]),
-                                     getXY(poseResults.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER]))
+                _, R1 = innerProduct(getXY(poseResults.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER]),
+                                     getXY(poseResults.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_ELBOW]))
                 _, R2 = innerProduct(getXY(poseResults.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_SHOULDER]),
                                      getXY(poseResults.pose_landmarks.landmark[mp_pose.PoseLandmark.RIGHT_WRIST]))
 

@@ -101,7 +101,7 @@ for epoch in range(0,epochs):
         feats_all = torch.Tensor().to(device)
         if loss.item()>best_loss:
             best_loss = loss.item()
-    writer.add_scalars('train/epoch', {'epoch_loss_high': best_loss}, global_step=epoch)
+    writer.add_scalars('train002/epoch', {'epoch_loss_high': best_loss}, global_step=epoch)
     best_loss = -1
     scheduler.step()
     # Save model
